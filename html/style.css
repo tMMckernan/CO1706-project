@@ -1,0 +1,81 @@
+/*Whole body*/
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0%;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: normal;
+}
+a {
+  color: #c7cbda;
+  text-decoration: none;
+}
+
+a:hover {
+  color: hotpink;
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  background-color: #be1622;
+}
+
+#main-header {
+  display: flex;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.logo {
+  display: flex;
+}
+#UCLan-logo {
+  height: 6em;
+}
+
+.main-nav {
+  display: flex;
+  flex: 35%;
+  align-self: center;
+  justify-content: end;
+}
+
+.main-nav-list {
+  display: flex;
+  font-size: 1.1em;
+  padding-left: 1em;
+}
+
+/* Main body*/
+main {
+  margin-bottom: auto;
+  width: 100%;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  color: whitesmoke;
+  background-color: #34516c;
+}
+
+#main-footer {
+  display: flex;
+  flex: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.info-container {
+  width: 33%;
+  text-align: center;
+}
+
+.info-list {
+  list-style: none;
+  padding-left: 0%;
+}
