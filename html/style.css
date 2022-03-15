@@ -6,17 +6,19 @@ body {
   margin: 0%;
 }
 
-h1 {
-  font-style: normal;
-  font-weight: normal;
+h2 {
+  font-size: 3.7em;
+  font-weight: 500;
+  color: #007fb0;
 }
+
 a {
   color: #c7cbda;
   text-decoration: none;
 }
 
 a:hover {
-  color: hotpink;
+  color: #0099d2;
   text-decoration: underline;
 }
 
@@ -59,27 +61,39 @@ main {
 /*Home page*/
 .left-info-row {
   display: flex;
-  width: 95%;
   margin: 0.5em;
   margin-left: 5%;
+  background-color: transparent;
 }
 
 .right-info-row {
   display: flex;
   flex-direction: row-reverse;
-  width: 95%;
-  margin: 0.5em;
   margin-right: 5%;
 }
 
-.info-text-container{
+.info-text-container {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 50%;
   margin-left: 0.5em;
   margin-right: 0.5em;
   align-items: center;
+  justify-content: center;
 }
+
+.spacer {
+  aspect-ratio: 1920/150;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header-border-img {
+  background-image: url("layered-waves-red-white-top.svg");
+}
+
 /* Footer */
 footer {
   display: flex;
