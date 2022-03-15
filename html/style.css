@@ -57,7 +57,29 @@ main {
 }
 
 /*Home page*/
+.left-info-row {
+  display: flex;
+  width: 95%;
+  margin: 0.5em;
+  margin-left: 5%;
+}
 
+.right-info-row {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 95%;
+  margin: 0.5em;
+  margin-right: 5%;
+}
+
+.info-text-container{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  align-items: center;
+}
 /* Footer */
 footer {
   display: flex;
