@@ -44,6 +44,7 @@ header {
 
 .logo {
   display: flex;
+  margin: 5px;
 }
 
 #UCLan-logo {
