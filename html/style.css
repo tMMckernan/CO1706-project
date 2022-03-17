@@ -1,4 +1,7 @@
-/*Whole body*/
+html {
+  font-family: sans-serif;
+}
+/*WHOLE BODY*/
 body {
   display: flex;
   flex-direction: column;
@@ -6,10 +9,16 @@ body {
   margin: 0%;
 }
 
-h2 {
-  font-size: 3.7em;
-  font-weight: 500;
+h3 {
+  font-size: 3em;
+  font-weight: 600;
   color: #007fb0;
+}
+
+h4 {
+  font-size: 3.2em;
+  font-weight: 500;
+  color: white;
 }
 
 a {
@@ -22,7 +31,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Header */
+/* HEADER */
 header {
   background-color: #be1622;
 }
@@ -32,9 +41,11 @@ header {
   margin-left: 20%;
   margin-right: 20%;
 }
+
 .logo {
   display: flex;
 }
+
 #UCLan-logo {
   height: 6em;
 }
@@ -52,52 +63,110 @@ header {
   padding-left: 1em;
 }
 
-/* Main body*/
+/* MAIN BODY */
 main {
   margin-bottom: auto;
   width: 100%;
 }
 
-/*Home page*/
-.left-info-row {
-  display: flex;
-  margin: 0.5em;
-  margin-left: 5%;
-  background-color: transparent;
-}
-
-.right-info-row {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-right: 5%;
-}
-
-.info-text-container {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  align-items: center;
-  justify-content: center;
-}
-
 .spacer {
   aspect-ratio: 1920/150;
   width: 100%;
-
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* HOME PAGE */
 
-.header-border-img {
-  background-image: url("layered-waves-red-white-top.svg");
+/* intro */
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Footer */
+.intro-video {
+  width: 80%;
+  height: 45em;
+}
+
+/* quote */
+.quote-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.quote-container {
+  margin: 1em;
+}
+
+/* extra info */
+
+.info-img {
+  height: 30em;
+  width: 70em;
+  margin: 1px;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.flex-row-right {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.flex-row-middle {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.flex-row-left {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.info-button {
+  background-color: white;
+  border: none;
+  color: #007fb0;
+  padding: 0.5em;
+  text-align: center;
+  border-radius: 12px;
+}
+
+/* background images */
+.header-border-img {
+  background-image: url("Resources/Images/layered-waves-red-white-top.svg");
+}
+
+.left-sided-info-img {
+  background-image: url("https://cdn1.ahr-global.com/images/UCLan-Social-spaces_1920x1080.jpg");
+}
+
+.middle-info-img {
+  background-image: url("https://th.bing.com/th/id/R.cf32ce1a7db77bbb06f7299c98422b95?rik=ZeCcSNuNhtMbow&riu=http%3a%2f%2fwww.oncampus.global%2fugc-1%2fgallery%2f104%2f104_full.jpg&ehk=rhEWlOBq0YcK3ASTkiQrg8tbWd2J09gvTfvFUAl02aY%3d&risl=&pid=ImgRaw&r=0");
+}
+
+.right-sided-info-img {
+  background-image: url("https://www.uclancyprus.ac.cy/wp-content/uploads/2019/04/DSC_1390.jpg");
+}
+/* FOOTER */
 footer {
   display: flex;
-  color: whitesmoke;
+  color: white;
   background-color: #34516c;
 }
 
