@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="script.js"></script>
     <title>UCLan- Item</title>
   </head>
-  <body>
+  <body onload="loadItemPage()">
     <!-- Header -->
     <header>
       <div id="main-header">
@@ -27,9 +28,27 @@
           </ul>
         </nav>
       </div>
+      <div class="spacer header-border-img"></div>
     </header>
     <!-- Main body -->
-    <main></main>
+    <main id="product-main-container">
+      <div id="product-container">
+        <div id="product-image-container">
+          <img id="primary-product-image" src="" alt="" />
+        </div>
+        <div id="product-info-container">
+          <div id="selected-product-title-container"></div>
+          <div id="selected-product-price-container"></div>
+          <div id="selected-product-colour-container"></div>
+          <div id="function-container">
+            <button class="add-to-basket">Add to basket</button>
+          </div>
+          <div id="selected-product-description-container">
+            <h2 id="description-h">Description:</h2>
+          </div>
+        </div>
+      </div>
+    </main>
     <!-- Footer -->
     <footer>
       <div id="main-footer">

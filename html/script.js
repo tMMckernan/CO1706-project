@@ -819,7 +819,6 @@ function openItemPage() {
   sessionStorage.setItem("product", this.id);
   //open up new page
   window.location.href = "item.html";
-  addBasketProduct();
 }
 
 //Load item into item.html
@@ -847,7 +846,7 @@ function loadItemPage() {
     "selected-product-description-container"
   );
   let productDescription = document.createElement("p");
-  productDescription.classList.add("product-description");
+  productDescription.id = "product-description";
   productDescription.textContent = product[2];
   descriptionElm.appendChild(productDescription);
 }
@@ -864,4 +863,20 @@ function searchForProduct(searchKey) {
     }
   });
   return found;
+}
+
+function addBasketProduct() {}
+
+function removeBasketProduct() {}
+
+function updateBasketProducts(productArray) {}
+
+function getBasketProducts() {}
+
+function getBasketAmount() {
+  if (localStorage.getItem("basket-amount") != null) {
+    return localStorage.getItem("basket-amount");
+  } else {
+    return 0;
+  }
 }
