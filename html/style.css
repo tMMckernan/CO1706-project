@@ -262,7 +262,57 @@ main {
   font-size: larger;
   font-weight: bold;
 }
+/* ITEM PAGE*/
+#product-main-container {
+  display: flex;
+  justify-content: center;
+}
+#product-container {
+  display: flex;
+}
 
+#primary-product-image {
+  width: 50em;
+}
+
+#product-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#function-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+  margin-bottom: 20em;
+}
+
+.add-to-basket {
+  width: 15em;
+  padding: 0.7em;
+  border: none;
+  border-radius: 12px;
+  background-color: #c7cbda;
+  color: #007fb0;
+  text-align: center;
+}
+
+#description-h {
+  margin-bottom: 0%;
+  font-size: 1em;
+}
+
+#product-description {
+  margin: 0%;
+  width: 20em;
+}
+/* Footer */
+footer {
+  color: whitesmoke;
+  width: 100%;
+  background-color: #34516c;
+}
 /* FOOTER */
 footer {
   display: flex;
