@@ -769,8 +769,19 @@ function getProductArray() {
   ]);
 }
 
+function getRefinedProductArray() {
+  if (true) {
+    return getProductArray();
+  } else {
+    let allProducts = getProductArray();
+    let refinedProductArray;
+    allProducts.forEach((currentProduct) => {});
+    return refinedProductArray;
+  }
+}
+
 function setUpStorePage() {
-  let ProductArray = getProductArray();
+  let ProductArray = getRefinedProductArray();
   let currentCategoryElem;
   let counter = 0;
   ProductArray.forEach((currentProduct) => {
@@ -796,21 +807,7 @@ function setUpStorePage() {
       currentProductElem.appendChild(currentProductPrice);
       currentProductElem.id = currentProductTitle.textContent;
       currentProductElem.onclick = openItemPage;
-
-      document
-        .getElementById(currentCategoryElem.id)
-        .appendChild(currentProductElem);
-    } else {
-      //Create catergory div
-      currentCategoryElem = document.createElement("div");
-      currentCategoryElem.id = currentProduct[1] + "-category";
-      currentCategoryElem.classList.add("products");
-
-      //Give each catergory a heading
-      let categoryHeading = document.createElement("h2");
-      categoryHeading.textContent = currentProduct[1].toUpperCase();
-      document.getElementById("all-products").appendChild(categoryHeading);
-      document.getElementById("all-products").appendChild(currentCategoryElem);
+      document.getElementById("all-products").appendChild(currentProductElem);
     }
     counter++;
   });
