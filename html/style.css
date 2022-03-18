@@ -150,7 +150,7 @@ main {
 
 /* background images */
 .header-border-img {
-  background-image: url("Resources/Images/layered-waves-red-white-top.svg");
+  background-image: url("images/layered-waves-red-white-top.svg");
 }
 
 .left-sided-info-img {
@@ -164,6 +164,35 @@ main {
 .right-sided-info-img {
   background-image: url("https://www.uclancyprus.ac.cy/wp-content/uploads/2019/04/DSC_1390.jpg");
 }
+
+/* PRODUCT PAGE*/
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.product {
+  margin-top: 0.5em;
+  padding: 1em;
+  display: flex;
+  flex: 0 0 24%;
+  flex-direction: column;
+  text-align: center;
+  border: 0.1em solid #34516c;
+  box-shadow: inset 0em 0em 0em 0.2em #577a9b;
+  box-sizing: border-box;
+  font-size: small;
+}
+
+.secondary-product-img {
+  width: 100%;
+}
+
+.secondary-product-price {
+  font-size: larger;
+  font-weight: bold;
+}
+
 /* FOOTER */
 footer {
   display: flex;
