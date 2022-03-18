@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="script.js"></script>
     <title>UCLan- Products</title>
   </head>
-  <body>
+  <body onload="setUpStorePage()">
     <!-- Header -->
     <header>
       <div id="main-header">
@@ -18,7 +19,6 @@
             alt="UCLan logo"
           />
         </div>
-
         <nav class="main-nav">
           <ul class="main-nav-list">
             <li class="main-nav-list"><a href="index.html">Home</a></li>
@@ -27,9 +27,15 @@
           </ul>
         </nav>
       </div>
+      <div class="spacer header-border-img"></div>
     </header>
     <!-- Main body -->
-    <main></main>
+    <main>
+      <!-- refine bar -->
+      <div></div>
+      <!-- main product area -->
+      <div id="all-products"></div>
+    </main>
     <!-- Footer -->
     <footer>
       <div id="main-footer">
