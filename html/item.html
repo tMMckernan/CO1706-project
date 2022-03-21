@@ -8,7 +8,7 @@
     <script src="script.js"></script>
     <title>UCLan- Item</title>
   </head>
-  <body onload="loadItemPage()">
+  <body onload="loadItemPage()" onunload="test()">
     <!-- Header -->
     <header>
       <div id="main-header">
@@ -41,7 +41,9 @@
           <div id="selected-product-price-container"></div>
           <div id="selected-product-colour-container"></div>
           <div id="function-container">
-            <button class="add-to-basket">Add to basket</button>
+            <button class="add-to-basket" onclick="addBasketProduct()">
+              Add to basket
+            </button>
           </div>
           <div id="selected-product-description-container">
             <h2 id="description-h">Description:</h2>
