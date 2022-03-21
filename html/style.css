@@ -1,6 +1,15 @@
+/* GENERAL */
 html {
   font-family: sans-serif;
 }
+
+.flex-row-centered {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
 /*WHOLE BODY*/
 body {
   display: flex;
@@ -150,19 +159,19 @@ main {
 
 /* background images */
 .header-border-img {
-  background-image: url("images/layered-waves-red-white-top.svg");
+  background-image: url('images/layered-waves-red-white-top.svg');
 }
 
 .left-sided-info-img {
-  background-image: url("https://cdn1.ahr-global.com/images/UCLan-Social-spaces_1920x1080.jpg");
+  background-image: url('https://cdn1.ahr-global.com/images/UCLan-Social-spaces_1920x1080.jpg');
 }
 
 .middle-info-img {
-  background-image: url("https://th.bing.com/th/id/R.cf32ce1a7db77bbb06f7299c98422b95?rik=ZeCcSNuNhtMbow&riu=http%3a%2f%2fwww.oncampus.global%2fugc-1%2fgallery%2f104%2f104_full.jpg&ehk=rhEWlOBq0YcK3ASTkiQrg8tbWd2J09gvTfvFUAl02aY%3d&risl=&pid=ImgRaw&r=0");
+  background-image: url('https://th.bing.com/th/id/R.cf32ce1a7db77bbb06f7299c98422b95?rik=ZeCcSNuNhtMbow&riu=http%3a%2f%2fwww.oncampus.global%2fugc-1%2fgallery%2f104%2f104_full.jpg&ehk=rhEWlOBq0YcK3ASTkiQrg8tbWd2J09gvTfvFUAl02aY%3d&risl=&pid=ImgRaw&r=0');
 }
 
 .right-sided-info-img {
-  background-image: url("https://www.uclancyprus.ac.cy/wp-content/uploads/2019/04/DSC_1390.jpg");
+  background-image: url('https://www.uclancyprus.ac.cy/wp-content/uploads/2019/04/DSC_1390.jpg');
 }
 
 /* PRODUCT PAGE*/
@@ -262,6 +271,7 @@ main {
   font-size: larger;
   font-weight: bold;
 }
+
 /* ITEM PAGE*/
 #product-main-container {
   display: flex;
@@ -272,7 +282,7 @@ main {
 }
 
 #primary-product-image {
-  width: 50em;
+  width: 40em;
 }
 
 #product-info-container {
@@ -285,7 +295,7 @@ main {
   display: flex;
   justify-content: center;
   margin-top: 3em;
-  margin-bottom: 20em;
+  margin-bottom: 12.5em;
 }
 
 .add-to-basket {
@@ -307,6 +317,81 @@ main {
   margin: 0%;
   width: 20em;
 }
+
+/* BASKET */
+
+#basket-primary-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2.5%;
+  width: 95%;
+  margin-bottom: 2.5em;
+}
+
+#basket-title-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
+  background-color: #c7cbda;
+  border-radius: 4px 4px 0px 0px;
+}
+
+#basket-secondary-container {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  width: 100% - 1px;
+  border-width: 1px;
+  border-top-width: 0px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+#empty-basket-error {
+  text-align: center;
+}
+
+.basket-item-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.basket-product-Image {
+  width: 7.5em;
+  margin-right: 2em;
+  margin: 0.5em;
+}
+
+.product-total-price {
+  display: flex;
+  flex: 35%;
+  justify-content: end;
+  margin-right: 1em;
+}
+
+.product-amount {
+  display: flex;
+  flex: 35%;
+  justify-content: end;
+}
+.product-info {
+  width: 20em;
+}
+
+.clear-basket-product-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  height: 2.5em;
+  margin-right: 1em;
+}
+
+.clear-basket-product-btn img {
+  width: 2.2em;
+}
+
 /* Footer */
 footer {
   color: whitesmoke;
