@@ -62,6 +62,7 @@
 
 .secondary-refine-ul {
   position: absolute;
+  list-style: none;
   display: none;
   padding: 0em;
   width: 10em;

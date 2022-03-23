@@ -1029,3 +1029,22 @@ function getBasketString() {
     return null;
   }
 }
+
+function togglePhoneMenu() {
+  let phoneMenuElem = document.getElementById('phone-nav');
+  let phoneMenuDisplay = window.getComputedStyle(phoneMenuElem).display;
+  console.log(phoneMenuDisplay);
+  if (phoneMenuDisplay == 'none') {
+    console.log('not displayed');
+    phoneMenuElem.style.display = 'flex';
+  } else {
+    console.log('displayed');
+    phoneMenuElem.style.display = 'none';
+  }
+}
+
+window.addEventListener('resize', function () {
+  if (window.matchMedia('(min-width: 600px)').matches) {
+    document.getElementById('phone-nav').style.display = 'none';
+  }
+});

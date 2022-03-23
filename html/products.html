@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="css/generalStyle.css" type="text/css" />
+    <link rel="stylesheet" href="css/productsStyle.css" type="text/css" />
     <script src="script.js"></script>
     <title>UCLan- Products</title>
   </head>
@@ -26,7 +27,21 @@
             <li class="main-nav-list"><a href="cart.html">My Basket</a></li>
           </ul>
         </nav>
+        <button class="phone-menu-btn" onclick="togglePhoneMenu()"></button>
       </div>
+      <nav id="phone-nav">
+        <ul class="phone-nav-list">
+          <li class="phone-nav-list">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="phone-nav-list">
+            <a href="products.html">Products</a>
+          </li>
+          <li class="phone-nav-list">
+            <a href="cart.html">My Basket</a>
+          </li>
+        </ul>
+      </nav>
       <div class="spacer header-border-img"></div>
     </header>
     <!-- Main body -->
@@ -39,16 +54,24 @@
             <li class="primary-refine-li">
               <button class="primary-refine-btn">Products</button>
               <ul class="secondary-refine-ul">
-                <button class="secondary-refine-btn">Hoodies</button>
-                <button class="secondary-refine-btn">Jumpers</button>
-                <button class="secondary-refine-btn">T-shirts</button>
+                <li><button class="secondary-refine-btn">Hoodies</button></li>
+                <li><button class="secondary-refine-btn">Jumpers</button></li>
+                <li><button class="secondary-refine-btn">T-shirts</button></li>
               </ul>
             </li>
             <li class="primary-refine-li">
               <button class="primary-refine-btn">Sort By</button>
               <ul class="secondary-refine-ul">
-                <button class="secondary-refine-btn">Price: High to low</button>
-                <button class="secondary-refine-btn">Price: Low to high</button>
+                <li>
+                  <button class="secondary-refine-btn">
+                    Price: High to low
+                  </button>
+                </li>
+                <li>
+                  <button class="secondary-refine-btn">
+                    Price: Low to high
+                  </button>
+                </li>
               </ul>
             </li>
           </ul>
