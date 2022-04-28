@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="css/generalStyle.css" type="text/css" />
+    <link rel="stylesheet" href="css/indexStyle.css" type="text/css" />
+    <script src="script.js"></script>
     <title>UCLan- Home Page</title>
   </head>
   <body>
@@ -25,33 +27,25 @@
             <li class="main-nav-list"><a href="cart.html">My Basket</a></li>
           </ul>
         </nav>
+        <button class="phone-menu-btn" onclick="togglePhoneMenu()"></button>
       </div>
+      <nav id="phone-nav">
+        <ul class="phone-nav-list">
+          <li class="phone-nav-list">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="phone-nav-list">
+            <a href="products.html">Products</a>
+          </li>
+          <li class="phone-nav-list">
+            <a href="cart.html">My Basket</a>
+          </li>
+        </ul>
+      </nav>
       <div class="spacer header-border-img"></div>
     </header>
     <!-- Main body -->
     <main>
-      <!-- Info containers -->
-      <div class="intro-container">
-        <iframe
-          class="intro-video"
-          src="https://www.youtube.com/embed/nh3-dJjO-7I"
-          title="UCLan tour"
-          frameborder="0"
-          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-        ></iframe>
-      </div>
-      <!-- Quote containers -->
-      <div class="quote-row">
-        <div class="quote-container">
-          <h3>We see opportunity</h3>
-        </div>
-        <div class="quote-container">
-          <h3>We see potential</h3>
-        </div>
-        <div class="quote-container">
-          <h3>We see you</h3>
-        </div>
-      </div>
       <!-- Info images -->
       <div class="flex-row-left">
         <div class="info-img left-sided-info-img">
@@ -91,6 +85,28 @@
             </button>
           </div>
         </div>
+      </div>
+      <!-- Quote containers -->
+      <div class="quote-row">
+        <div class="quote-container">
+          <h3>We see opportunity</h3>
+        </div>
+        <div class="quote-container">
+          <h3>We see potential</h3>
+        </div>
+        <div class="quote-container">
+          <h3>We see you</h3>
+        </div>
+      </div>
+      <!-- Info containers -->
+      <div class="intro-container">
+        <iframe
+          class="intro-video"
+          src="https://www.youtube.com/embed/nh3-dJjO-7I"
+          title="UCLan tour"
+          frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        ></iframe>
       </div>
     </main>
     <!-- Footer -->

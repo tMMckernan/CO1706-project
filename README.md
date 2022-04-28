@@ -39,3 +39,21 @@ Included in this page should be the following:
 -Show the amount of items in basket
 -Allow user to remove item from basket
 -Have a "checkout"
+
+References:
+W3schools (2019). Responsive Web Design Media Queries. [online] W3schools.com. Available at: https://www.w3schools.com/css/css_rwd_mediaqueries.asp.
+
+‌bobbyhadz.com. (n.d.). Get an Element’s CSS Display Value using JavaScript | bobbyhadz. [online] Available at: https://bobbyhadz.com/blog/javascript-get-css-display-value [Accessed 21 Mar. 2022].
+
+‌www.techstacker.com. (n.d.). How to Detect if Screen Width is Greater or Less Than a Value in JavaScript. [online] Available at: https://techstacker.com/javascript-detect-if-screen-width-is-greater-or-less-than/ [Accessed 21 Mar. 2022].
+
+‌W3schools.com. (2019). HTML DOM appendChild() Method. [online] Available at: https://www.w3schools.com/jsref/met_node_appendchild.asp.
+
+‌W3schools.com. (2019). CSS :hover Selector. [online] Available at: https://www.w3schools.com/cssref/sel_hover.asp.
+
+‌W3schools.com. (2020). CSS background-image property. [online] Available at: https://www.w3schools.com/cssref/pr_background-image.asp.
+
+‌W3schools.com. (2019). CSS Dropdowns. [online] Available at: https://www.w3schools.com/css/css_dropdowns.asp.
+
+‌Github:
+https://github.com/tMMckernan/CO1706-project
