@@ -22,9 +22,9 @@
         </div>
         <nav class="main-nav">
           <ul class="main-nav-list">
-            <li class="main-nav-list"><a href="index.html">Home</a></li>
-            <li class="main-nav-list"><a href="products.html">Products</a></li>
-            <li class="main-nav-list"><a href="cart.html">My Basket</a></li>
+            <li class="main-nav-list"><a href="index.php">Home</a></li>
+            <li class="main-nav-list"><a href="products.php">Products</a></li>
+            <li class="main-nav-list"><a href="cart.php">My Basket</a></li>
           </ul>
         </nav>
         <button class="phone-menu-btn" onclick="togglePhoneMenu()"></button>
@@ -32,13 +32,13 @@
       <nav id="phone-nav">
         <ul class="phone-nav-list">
           <li class="phone-nav-list">
-            <a href="index.html">Home</a>
+            <a href="index.php">Home</a>
           </li>
           <li class="phone-nav-list">
-            <a href="products.html">Products</a>
+            <a href="products.php">Products</a>
           </li>
           <li class="phone-nav-list">
-            <a href="cart.html">My Basket</a>
+            <a href="cart.php">My Basket</a>
           </li>
         </ul>
       </nav>
