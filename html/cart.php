@@ -1,3 +1,8 @@
+<?php 
+   session_start();
+   include("conn.php");
+   include("functions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,39 +16,9 @@
   </head>
   <body onload="updateBasketPage()">
     <!-- Header -->
-    <header>
-      <div id="main-header">
-        <div class="logo">
-          <img
-            id="UCLan-logo"
-            src="https://commediastore.hkct.edu.hk/UCLan_logo_digital_5+Nov+2020_resize.png"
-            alt="UCLan logo"
-          />
-        </div>
-        <nav class="main-nav">
-          <ul class="main-nav-list">
-            <li class="main-nav-list"><a href="index.php">Home</a></li>
-            <li class="main-nav-list"><a href="products.php">Products</a></li>
-            <li class="main-nav-list"><a href="cart.php">My Basket</a></li>
-          </ul>
-        </nav>
-        <button class="phone-menu-btn" onclick="togglePhoneMenu()"></button>
-      </div>
-      <nav id="phone-nav">
-        <ul class="phone-nav-list">
-          <li class="phone-nav-list">
-            <a href="index.php">Home</a>
-          </li>
-          <li class="phone-nav-list">
-            <a href="products.php">Products</a>
-          </li>
-          <li class="phone-nav-list">
-            <a href="cart.php">My Basket</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="spacer header-border-img"></div>
-    </header>
+    <?php 
+      include("header.php"); 
+    ?>
     <!-- Main body -->
     <main>
       <div id="basket-primary-container">

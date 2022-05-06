@@ -30,7 +30,7 @@ body {
 }
 
 h3 {
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: 600;
   color: #007fb0;
 }
@@ -72,6 +72,13 @@ header {
   height: 6em;
 }
 
+.welcome-message {
+  font-size: 1em;
+  font-weight: 250;
+  margin-left: 0.25em;
+  margin-bottom: 0%;
+  margin-top: 0%;
+}
 .main-nav {
   display: flex;
   flex: 35%;
@@ -101,7 +108,7 @@ header {
 }
 
 .header-border-img {
-  background-image: url('../images/layered-waves-red-white-top.svg');
+  background-image: url("../images/layered-waves-red-white-top.svg");
 }
 
 /* FOOTER */
@@ -156,7 +163,7 @@ footer {
 
   .phone-menu-btn {
     display: flex;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png');
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png");
     background-size: cover;
     background-position: center;
     width: 2em;

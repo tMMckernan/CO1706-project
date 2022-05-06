@@ -1,3 +1,16 @@
+<?php 
+   session_start();
+   include("conn.php");
+   include("functions.php");
+
+   //get selected item from session
+   $product = $_GET['productID'];
+   $query = "SELECT * FROM `tbl_products` WHERE `product_id` = $product LIMIT 1";
+   $result = mysqli_query($connection, $query);
+   if($result && mysqli_num_rows($result) > 0 ){
+      $productData = mysqli_fetch_assoc($result);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,49 +24,33 @@
   </head>
   <body onload="loadItemPage()" onunload="test()">
     <!-- Header -->
-    <header>
-      <div id="main-header">
-        <div class="logo">
-          <img
-            id="UCLan-logo"
-            src="https://commediastore.hkct.edu.hk/UCLan_logo_digital_5+Nov+2020_resize.png"
-            alt="UCLan logo"
-          />
-        </div>
-        <nav class="main-nav">
-          <ul class="main-nav-list">
-            <li class="main-nav-list"><a href="index.php">Home</a></li>
-            <li class="main-nav-list"><a href="products.php">Products</a></li>
-            <li class="main-nav-list"><a href="cart.php">My Basket</a></li>
-          </ul>
-        </nav>
-        <button class="phone-menu-btn" onclick="togglePhoneMenu()"></button>
-      </div>
-      <nav id="phone-nav">
-        <ul class="phone-nav-list">
-          <li class="phone-nav-list">
-            <a href="index.php">Home</a>
-          </li>
-          <li class="phone-nav-list">
-            <a href="products.php">Products</a>
-          </li>
-          <li class="phone-nav-list">
-            <a href="cart.php">My Basket</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="spacer header-border-img"></div>
-    </header>
+    <?php 
+      include("header.php"); 
+    ?>
     <!-- Main body -->
     <main id="product-main-container">
       <div id="product-container">
         <div id="product-image-container">
-          <img id="primary-product-image" src="" alt="" />
+          <?php 
+            echo "<img id='primary-product-image' src='". $productData['product_image'] ."' alt='Image of a ". $productData['product_title'] ."' />";
+          ?>
         </div>
         <div id="product-info-container">
-          <div id="selected-product-title-container"></div>
-          <div id="selected-product-price-container"></div>
-          <div id="selected-product-colour-container"></div>
+          <div id="selected-product-title-container">
+            <?php 
+              echo "<h2 class='primary-product-title'>". $productData['product_title'] ."</h2>";
+            ?>
+          </div>
+          <div id="selected-product-price-container">
+            <?php 
+              echo "<h2 class='primary-product-price'>£". $productData['product_price'] ."</h2>";
+            ?>
+          </div>
+          <div id="selected-product-colour-container">
+            <?php 
+              echo $productData['product_title'];
+            ?>
+          </div>
           <div id="function-container">
             <button class="add-to-basket" onclick="addBasketProduct()">
               Add to basket
@@ -61,6 +58,10 @@
           </div>
           <div id="selected-product-description-container">
             <h2 id="description-h">Description:</h2>
+            <?php 
+              echo "<p id='product-description'>". $productData['product_desc'] ."</p>";
+              
+            ?>
           </div>
         </div>
       </div>

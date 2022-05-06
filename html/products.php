@@ -1,3 +1,8 @@
+<?php 
+   session_start();
+   include("conn.php");
+   include("functions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,41 +14,11 @@
     <script src="script.js"></script>
     <title>UCLan- Products</title>
   </head>
-  <body onload="setUpStorePage()">
+  <body>
     <!-- Header -->
-    <header>
-      <div id="main-header">
-        <div class="logo">
-          <img
-            id="UCLan-logo"
-            src="https://commediastore.hkct.edu.hk/UCLan_logo_digital_5+Nov+2020_resize.png"
-            alt="UCLan logo"
-          />
-        </div>
-        <nav class="main-nav">
-          <ul class="main-nav-list">
-            <li class="main-nav-list"><a href="index.php">Home</a></li>
-            <li class="main-nav-list"><a href="products.php">Products</a></li>
-            <li class="main-nav-list"><a href="cart.php">My Basket</a></li>
-          </ul>
-        </nav>
-        <button class="phone-menu-btn" onclick="togglePhoneMenu()"></button>
-      </div>
-      <nav id="phone-nav">
-        <ul class="phone-nav-list">
-          <li class="phone-nav-list">
-            <a href="index.php">Home</a>
-          </li>
-          <li class="phone-nav-list">
-            <a href="products.php">Products</a>
-          </li>
-          <li class="phone-nav-list">
-            <a href="cart.php">My Basket</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="spacer header-border-img"></div>
-    </header>
+    <?php 
+      include("header.php"); 
+    ?>
     <!-- Main body -->
     <main>
       <!-- refine bar -->
@@ -54,31 +29,74 @@
             <li class="primary-refine-li">
               <button class="primary-refine-btn">Products</button>
               <ul class="secondary-refine-ul">
-                <li><button class="secondary-refine-btn">Hoodies</button></li>
-                <li><button class="secondary-refine-btn">Jumpers</button></li>
-                <li><button class="secondary-refine-btn">T-shirts</button></li>
-              </ul>
+                <li><button class="secondary-refine-btn" onClick='location.href="?btnRefineAll=1"'>All</button></li>
+                <li><button class="secondary-refine-btn" onClick='location.href="?btnRefineHoodies=1"'>Hoodies</button></li>
+                <li><button class="secondary-refine-btn" onClick='location.href="?btnRefineJumpers=1"'>Jumpers</button></li>
+                <li><button class="secondary-refine-btn" onClick='location.href="?btnRefineT-shirts=1"'>T-shirts</button></li>
             </li>
+            </ul>
             <li class="primary-refine-li">
               <button class="primary-refine-btn">Sort By</button>
               <ul class="secondary-refine-ul">
-                <li>
-                  <button class="secondary-refine-btn">
-                    Price: High to low
-                  </button>
-                </li>
-                <li>
-                  <button class="secondary-refine-btn">
-                    Price: Low to high
-                  </button>
-                </li>
+                 <li><button class="secondary-refine-btn" onClick='location.href="?btnSortByNone=1"'>None</button></li>
+                <li><button class="secondary-refine-btn" onClick='location.href="?btnSortByHL=1"'>Price: High to low</button></li>
+                <li><button class="secondary-refine-btn" onClick='location.href="?btnSortByLH=1"'>Price: Low to high</button></li>
               </ul>
             </li>
           </ul>
         </nav>
       </div>
       <!-- main product area -->
-      <div id="all-products"></div>
+      <div id="all-products">
+        <?php   
+          $refine = null;
+          $sortBy = null;
+          //Refine
+          if(isset($_GET['btnRefineHoodies']))
+          {
+           if($_GET['btnRefineHoodies']){
+              $refine =  "UCLan Hoodie";
+            }
+          }
+          else if(isset($_GET['btnRefineJumpers']))
+          {
+           if($_GET['btnRefineJumpers']){
+              $refine = "UCLan Logo Jumper";
+            }
+          }
+          else if(isset($_GET['btnRefineT-shirts']))
+          {
+            if($_GET['btnRefineT-shirts']){
+             $refine =  "UCLan Logo Tshirt";
+            }
+          }
+          else if(isset($_GET['btnSortByNone']))
+          {
+            if($_GET['btnSortByNone']){
+              $refine = null;
+            }
+          }
+           //Sort by
+          if(isset($_GET['btnSortByHL'])){
+            if($_GET['btnSortByHL']){
+              $sortBy = "DESC";
+            }
+          }
+          else if(isset($_GET['btnSortByLH'])){
+            if($_GET['btnSortByLH']){
+              $sortBy = "ASC";
+            }
+          }
+          else if(isset($_GET['btnRefineAll'])){
+            if($_GET['btnRefineAll']){
+              $sortBy = null;
+            }
+          }
+            
+          
+           displayAllProducts($connection, $refine, $sortBy);
+        ?>
+      </div>
     </main>
     <!-- Footer -->
     <footer>
