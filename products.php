@@ -49,14 +49,14 @@
             <li class="primary-refine-li">
               <button class="primary-refine-btn">Sort By</button>
               <ul class="secondary-refine-ul">
-                 <?php 
+                <?php 
                   if(isset($_GET['RefineType'])){
                     if($_GET['RefineType']){
                       $refineGET = "&RefineType=" . $_GET['RefineType'];
                     }
                   }
                   else{
-                    $sortByGET = "";
+                    $refineGET = "";
                   }
                   echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?SortBy=None". $refineGET ." \" '>None</button></li>";
                   echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?SortBy=DESC". $refineGET ." \" '>Price: High to low</button></li>";

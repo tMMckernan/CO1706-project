@@ -27,7 +27,7 @@
             <h4>Take the next step with a postgraduate degree</h4>
             <button
               class="info-button"
-              onclick="window.location.href='https://www.uclan.ac.uk/postgraduate';"
+              onclick="window.location.href='//www.uclan.ac.uk/postgraduate';"
             >
               Discover the postgraduate courses
             </button>
@@ -40,7 +40,7 @@
             <h4>Attend a University Open Day</h4>
             <button
               class="info-button"
-              onclick="window.location.href='https://www.uclan.ac.uk/open-days';"
+              onclick="window.location.href='//www.uclan.ac.uk/open-days';"
             >
               Register to show your intrest
             </button>
@@ -53,7 +53,7 @@
             <h4>Considering Returning to Study as a mature student?</h4>
             <button
               class="info-button"
-              onclick="window.location.href='https://www.uclan.ac.uk/study/return-to-study';"
+              onclick="window.location.href='//www.uclan.ac.uk/study/return-to-study';"
             >
               Join us now
             </button>
