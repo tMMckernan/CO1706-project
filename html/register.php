@@ -7,8 +7,6 @@
    */
    include("conn.php");
    include("functions.php");
-   include("header.php");
-
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
        $fullName = $_POST['fullName'];
@@ -23,8 +21,7 @@
                 $password = hash("sha256", $password);
                 //Add user to data base
                 $query = "INSERT INTO `tbl_users` (`user_full_name`, `user_address`, `user_email`, `user_pass`, `user_timestamp`) VALUES ('$fullName', '$address', '$email', '$password', CURRENT_TIMESTAMP);";
-                if($result = mysqli_query($connection, $query))
-                {
+                if($result = mysqli_query($connection, $query)){
                    //Go to login screen
                    header("Location: login.php");
                    die;
@@ -55,6 +52,9 @@
     <title>UCLan- Register</title>
   </head>
   <body>
+    <?php
+      include("header.php");
+    ?>
     <!-- Main body -->
     <main>
       <form method = "POST">

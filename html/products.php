@@ -29,18 +29,39 @@
             <li class="primary-refine-li">
               <button class="primary-refine-btn">Products</button>
               <ul class="secondary-refine-ul">
-                <li><button class="secondary-refine-btn" onClick='location.href="?btnRefineAll=1"'>All</button></li>
-                <li><button class="secondary-refine-btn" onClick='location.href="?btnRefineHoodies=1"'>Hoodies</button></li>
-                <li><button class="secondary-refine-btn" onClick='location.href="?btnRefineJumpers=1"'>Jumpers</button></li>
-                <li><button class="secondary-refine-btn" onClick='location.href="?btnRefineT-shirts=1"'>T-shirts</button></li>
+                <?php  
+                  if(isset($_GET['SortBy'])){
+                    if($_GET['SortBy']){
+                      $sortByGET = "&SortBy=" . $_GET['SortBy'];
+                    }
+                  }
+                  else{
+                    $sortByGET = "";
+                  }
+                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?RefineType=All". $sortByGET ." \" '>All</button></li>";
+                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?RefineType=UCLan Hoodie". $sortByGET ." \" '>UCLan Hoodie</button></li>";
+                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?RefineType=UCLan Logo Jumper". $sortByGET ." \" '>UCLan Logo Jumper</button></li>";
+                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?RefineType=UCLan Logo Tshirt". $sortByGET ." \" '>UCLan Logo Tshirt</button></li>";
+                 
+                ?>
             </li>
             </ul>
             <li class="primary-refine-li">
               <button class="primary-refine-btn">Sort By</button>
               <ul class="secondary-refine-ul">
-                 <li><button class="secondary-refine-btn" onClick='location.href="?btnSortByNone=1"'>None</button></li>
-                <li><button class="secondary-refine-btn" onClick='location.href="?btnSortByHL=1"'>Price: High to low</button></li>
-                <li><button class="secondary-refine-btn" onClick='location.href="?btnSortByLH=1"'>Price: Low to high</button></li>
+                 <?php 
+                  if(isset($_GET['RefineType'])){
+                    if($_GET['RefineType']){
+                      $refineGET = "&RefineType=" . $_GET['RefineType'];
+                    }
+                  }
+                  else{
+                    $sortByGET = "";
+                  }
+                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?SortBy=None". $refineGET ." \" '>None</button></li>";
+                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?SortBy=DESC". $refineGET ." \" '>Price: High to low</button></li>";
+                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?SortBy=ASC". $refineGET ." \" '>Price: Low to high</button></li>";
+                ?>
               </ul>
             </li>
           </ul>
@@ -49,52 +70,22 @@
       <!-- main product area -->
       <div id="all-products">
         <?php   
-          $refine = null;
-          $sortBy = null;
+          $refine = "All";
+          $sortBy = "None";
           //Refine
-          if(isset($_GET['btnRefineHoodies']))
-          {
-           if($_GET['btnRefineHoodies']){
-              $refine =  "UCLan Hoodie";
-            }
-          }
-          else if(isset($_GET['btnRefineJumpers']))
-          {
-           if($_GET['btnRefineJumpers']){
-              $refine = "UCLan Logo Jumper";
-            }
-          }
-          else if(isset($_GET['btnRefineT-shirts']))
-          {
-            if($_GET['btnRefineT-shirts']){
-             $refine =  "UCLan Logo Tshirt";
-            }
-          }
-          else if(isset($_GET['btnSortByNone']))
-          {
-            if($_GET['btnSortByNone']){
-              $refine = null;
+          if(isset($_GET['RefineType'])){
+           if($_GET['RefineType']){
+               $refine = $_GET['RefineType'];
             }
           }
            //Sort by
-          if(isset($_GET['btnSortByHL'])){
-            if($_GET['btnSortByHL']){
-              $sortBy = "DESC";
+          if(isset($_GET['SortBy'])){
+           if($_GET['SortBy']){
+              $sortBy = $_GET['SortBy'];
             }
           }
-          else if(isset($_GET['btnSortByLH'])){
-            if($_GET['btnSortByLH']){
-              $sortBy = "ASC";
-            }
-          }
-          else if(isset($_GET['btnRefineAll'])){
-            if($_GET['btnRefineAll']){
-              $sortBy = null;
-            }
-          }
-            
-          
-           displayAllProducts($connection, $refine, $sortBy);
+
+          displayAllProducts($connection, $refine, $sortBy);
         ?>
       </div>
     </main>

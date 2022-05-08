@@ -21,19 +21,19 @@ function checkLogin($connection)
 
 function displayAllProducts($connection,$refine, $sortBy)
 {  
-    if($refine != null){
+    if($refine != "All"){
         $refineQuery = " WHERE `product_type` = '$refine'";
     }
     else{
         $refineQuery = "";
     }
-    if($sortBy != null){
+    if($sortBy != "None"){
         $sortByQuery = " ORDER BY `product_price` $sortBy";
     }
     else{
         $sortByQuery = "";
     }
-    $query = "SELECT * FROM tbl_products" . $refineQuery ;
+    $query = "SELECT * FROM tbl_products" . $refineQuery . $sortByQuery;
     $result = mysqli_query($connection, $query);
     if($result){
         // success! check results
@@ -50,13 +50,16 @@ function displayAllProducts($connection,$refine, $sortBy)
     }
 }
 
-/*
-Notes:
--make sorting/refining products work
--Make product page work correctly using php session storage
--make add to basket work
-
-*/
-//openItemPage
-//<div class="product" id="UCLan Hoodie- Light Blue"><img class="secondary-product-img" src="images/items/hoodies/hoodie (2).jpg"><p class="secondary-product-title">UCLan Hoodie- Light Blue</p><p class="secondary-product-price">£39.99</p></div>
+    function getAverageRating($connection,$productID){
+        $productID = $_GET['productID'];
+        $query = "SELECT * FROM `tbl_reviews` WHERE `product_id` = '$productID'";
+        $result = mysqli_query($connection, $query);
+        $counter = 1;
+        $totalReviewRating = 0;
+        while($review = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            $totalReviewRating = $totalReviewRating + $review['review_rating'];
+            $counter = $counter + 1;
+        }
+        return number_format((float)$totalReviewRating / $counter, 2, '.', ''); 
+    }
 ?>

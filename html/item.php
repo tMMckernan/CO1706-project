@@ -4,11 +4,31 @@
    include("functions.php");
 
    //get selected item from session
-   $product = $_GET['productID'];
-   $query = "SELECT * FROM `tbl_products` WHERE `product_id` = $product LIMIT 1";
+   $productID = $_GET['productID'];
+   $query = "SELECT * FROM `tbl_products` WHERE `product_id` = $productID LIMIT 1";
    $result = mysqli_query($connection, $query);
    if($result && mysqli_num_rows($result) > 0 ){
       $productData = mysqli_fetch_assoc($result);
+   }
+
+   if($_SERVER['REQUEST_METHOD'] == "POST"){
+       $userID = $_SESSION['userID'];
+       $productID = $_GET['productID'];
+       $reviewTitle = $_POST['reviewTitle'];
+       $reviewDesc = $_POST['reviewDesc'];
+       $reviewRating = $_POST['reviewRating'];
+       
+       if(!empty($reviewTitle) && !empty($reviewDesc)){
+            $query = "INSERT INTO `tbl_reviews` (`user_id`, `product_id`, `review_title`, `review_desc`, `review_rating`, `review_timestamp`) VALUES ('$userID', '$productID', '$reviewTitle', '$reviewDesc', '$reviewRating', CURRENT_TIMESTAMP);";
+            if($result = mysqli_query($connection, $query)){
+            }
+            else{
+                echo '<script>alert("Error writing the review")</script>'; 
+            }
+        }
+        else{
+            echo '<script>alert("Please fill in all information")</script>';
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -41,6 +61,11 @@
               echo "<h2 class='primary-product-title'>". $productData['product_title'] ."</h2>";
             ?>
           </div>
+          <div id="selected-product-title-container">
+            <?php 
+              echo "<h2>Rating: ". getAverageRating($connection, $_GET['productID']) ."*</h2>";
+            ?>
+          </div>
           <div id="selected-product-price-container">
             <?php 
               echo "<h2 class='primary-product-price'>£". $productData['product_price'] ."</h2>";
@@ -56,14 +81,35 @@
               Add to basket
             </button>
           </div>
+          <div>
+            <?php
+              echo "<button class='add-to-basket' onClick='location.href=\"reviews.php?productID=". $_GET['productID'] ."\"'>Reviews</button>";
+            ?>
+          </div>
           <div id="selected-product-description-container">
             <h2 id="description-h">Description:</h2>
             <?php 
               echo "<p id='product-description'>". $productData['product_desc'] ."</p>";
-              
             ?>
           </div>
         </div>
+      </div>
+      <div id="create-review-container">
+          <form method = "POST">
+          <label for="reviewTitle">Review Title:</label><br>
+          <input type="text" id="reviewTitle" name="reviewTitle"><br>
+          <label for="reviewDesc">Review comment:</label><br>
+          <textarea id="reviewDesc" name="reviewDesc" rows="5" cols="50"></textarea><br>
+          <label for="reviewRating">Choose a rating:</label>
+          <select id="reviewRating" name="reviewRating" >
+              <option value="1">1 Star</option>
+              <option value="2">2 Star</option>
+              <option value="3">3 Star</option>
+              <option value="4">4 Star</option>
+              <option value="5">5 Star</option>
+          </select><br><br>
+        <input type="submit" value="Sumbit Review">
+        </form>
       </div>
     </main>
     <!-- Footer -->

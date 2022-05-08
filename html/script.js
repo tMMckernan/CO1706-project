@@ -1,14 +1,3 @@
-function getRefinedProductArray() {
-  if (true) {
-    return getProductArray();
-  } else {
-    let allProducts = getProductArray();
-    let refinedProductArray;
-    allProducts.forEach((currentProduct) => {});
-    return refinedProductArray;
-  }
-}
-
 function setUpStorePage() {
   let ProductArray = getRefinedProductArray();
   let counter = 0;
