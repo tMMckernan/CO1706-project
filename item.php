@@ -1,35 +1,46 @@
 <?php 
-   session_start();
-   include("conn.php");
-   include("functions.php");
+  session_start();
+  include("conn.php");
+  include("functions.php");
 
-   //get selected item from session
-   $productID = $_GET['productID'];
-   $query = "SELECT * FROM `tbl_products` WHERE `product_id` = $productID LIMIT 1";
-   $result = mysqli_query($connection, $query);
-   if($result && mysqli_num_rows($result) > 0 ){
-      $productData = mysqli_fetch_assoc($result);
-   }
+  //get selected item from session
+  $productID = $_GET['productID'];
+  $query = "SELECT * FROM `tbl_products` WHERE `product_id` = $productID LIMIT 1";
+  $result = mysqli_query($connection, $query);
+  if($result && mysqli_num_rows($result) > 0 ){
+    $productData = mysqli_fetch_assoc($result);
+  }
 
-   if($_SERVER['REQUEST_METHOD'] == "POST"){
-       $userID = $_SESSION['userID'];
-       $productID = $_GET['productID'];
-       $reviewTitle = $_POST['reviewTitle'];
-       $reviewDesc = $_POST['reviewDesc'];
-       $reviewRating = $_POST['reviewRating'];
+  if($_SERVER['REQUEST_METHOD'] == "POST"){
+    $request = $_POST['requestName'];
+    if($request == "Sumbit Review")
+    {
+      $userID = $_SESSION['userID'];
+      $reviewTitle = $_POST['reviewTitle'];
+      $reviewDesc = $_POST['reviewDesc'];
+      $reviewRating = $_POST['reviewRating'];
        
-       if(!empty($reviewTitle) && !empty($reviewDesc)){
-            $query = "INSERT INTO `tbl_reviews` (`user_id`, `product_id`, `review_title`, `review_desc`, `review_rating`, `review_timestamp`) VALUES ('$userID', '$productID', '$reviewTitle', '$reviewDesc', '$reviewRating', CURRENT_TIMESTAMP);";
-            if($result = mysqli_query($connection, $query)){
-            }
-            else{
-                echo '<script>alert("Error writing the review")</script>'; 
-            }
+      if(!empty($reviewTitle) && !empty($reviewDesc)){
+        $query = "INSERT INTO `tbl_reviews` (`user_id`, `product_id`, `review_title`, `review_desc`, `review_rating`, `review_timestamp`) VALUES ('$userID', '$productID', '$reviewTitle', '$reviewDesc', '$reviewRating', CURRENT_TIMESTAMP);";
+        if(!($result = mysqli_query($connection, $query))){
+          echo '<script>alert("Error writing the review")</script>'; 
         }
-        else{
-            echo '<script>alert("Please fill in all information")</script>';
-        }
+      }
+      else{
+        echo '<script>alert("Please fill in all information")</script>';
+      }
     }
+    else if($request == "addToBasket"){      
+      if(isset($_SESSION['basket'])){
+        array_push($_SESSION['basket'], $productID);
+      }
+      else{
+        $newBasket = array($productID);
+        $_SESSION['basket'] = $newBasket;
+      }
+      $productAdded = true;
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,9 +88,9 @@
             ?>
           </div>
           <div id="function-container">
-            <button class="add-to-basket" onclick="addBasketProduct()">
-              Add to basket
-            </button>
+            <form method="post">
+              <button type="submit" name="requestName" value="addToBasket">Add to basket</button>
+            </form>
           </div>
           <div>
             <?php
@@ -108,7 +119,7 @@
               <option value="4">4 Star</option>
               <option value="5">5 Star</option>
           </select><br><br>
-        <input type="submit" value="Sumbit Review">
+          <input type="submit"  name="requestName" value="Sumbit Review">
         </form>
       </div>
     </main>
@@ -147,3 +158,9 @@
     </footer>
   </body>
 </html>
+<?php
+  if($productAdded == true)
+  {
+    echo '<script>alert("Item added to basket.")</script>'; 
+  }
+?>

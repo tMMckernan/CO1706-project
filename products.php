@@ -1,7 +1,28 @@
 <?php 
-   session_start();
-   include("conn.php");
-   include("functions.php");
+  session_start();
+  include("conn.php");
+  include("functions.php");
+  $refine = "All";
+  $sortBy = "None";
+  $search = "";
+  //Refine
+  if(isset($_GET['RefineType'])){
+   if($_GET['RefineType']){
+       $refine = $_GET['RefineType'];
+    }
+  }
+   //Sort by
+  if(isset($_GET['SortBy'])){
+   if($_GET['SortBy']){
+      $sortBy = $_GET['SortBy'];
+    }
+  }
+  //Search
+   if(isset($_GET['ProductSearch'])){
+   if($_GET['ProductSearch']){
+      $search = $_GET['ProductSearch'];
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,67 +46,27 @@
       <div id="refine-row">
         <nav id="refine-nav">
           <h2 id="store-tag">ITEM STORE</h2>
-          <ul id="refine-ul">
-            <li class="primary-refine-li">
-              <button class="primary-refine-btn">Products</button>
-              <ul class="secondary-refine-ul">
-                <?php  
-                  if(isset($_GET['SortBy'])){
-                    if($_GET['SortBy']){
-                      $sortByGET = "&SortBy=" . $_GET['SortBy'];
-                    }
-                  }
-                  else{
-                    $sortByGET = "";
-                  }
-                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?RefineType=All". $sortByGET ." \" '>All</button></li>";
-                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?RefineType=UCLan Hoodie". $sortByGET ." \" '>UCLan Hoodie</button></li>";
-                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?RefineType=UCLan Logo Jumper". $sortByGET ." \" '>UCLan Logo Jumper</button></li>";
-                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?RefineType=UCLan Logo Tshirt". $sortByGET ." \" '>UCLan Logo Tshirt</button></li>";
-                 
-                ?>
-            </li>
-            </ul>
-            <li class="primary-refine-li">
-              <button class="primary-refine-btn">Sort By</button>
-              <ul class="secondary-refine-ul">
-                <?php 
-                  if(isset($_GET['RefineType'])){
-                    if($_GET['RefineType']){
-                      $refineGET = "&RefineType=" . $_GET['RefineType'];
-                    }
-                  }
-                  else{
-                    $refineGET = "";
-                  }
-                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?SortBy=None". $refineGET ." \" '>None</button></li>";
-                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?SortBy=DESC". $refineGET ." \" '>Price: High to low</button></li>";
-                  echo "<li><button class='secondary-refine-btn' onClick='location.href=\"?SortBy=ASC". $refineGET ." \" '>Price: Low to high</button></li>";
-                ?>
-              </ul>
-            </li>
-          </ul>
+          <form method="get">
+              <input type="search" id="ProductSearch" name="ProductSearch">
+              <select id="RefineType" name="RefineType">
+                <option value="All">Refine</option>
+                <option value="UCLan Hoodie">Hoodie</option>
+                <option value="UCLan Logo Jumper">Jumper</option> 
+                <option value="UCLan Logo Tshirt">TShirt</option>
+              </select>
+              <select id="SortBy" name="SortBy">
+                <option value="None">Sort By</option>
+                <option value="DESC">Price: High to low</option>
+                <option value="ASC">Price: Low to high</option> 
+              </select>
+              <input type="submit" value="Search">
+            </form>
         </nav>
       </div>
       <!-- main product area -->
       <div id="all-products">
         <?php   
-          $refine = "All";
-          $sortBy = "None";
-          //Refine
-          if(isset($_GET['RefineType'])){
-           if($_GET['RefineType']){
-               $refine = $_GET['RefineType'];
-            }
-          }
-           //Sort by
-          if(isset($_GET['SortBy'])){
-           if($_GET['SortBy']){
-              $sortBy = $_GET['SortBy'];
-            }
-          }
-
-          displayAllProducts($connection, $refine, $sortBy);
+          displayAllProducts($connection, $refine, $sortBy, $search);
         ?>
       </div>
     </main>

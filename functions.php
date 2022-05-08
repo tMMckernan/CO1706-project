@@ -19,21 +19,35 @@ function checkLogin($connection)
     die;
 }
 
-function displayAllProducts($connection,$refine, $sortBy)
+function displayAllProducts($connection, $refine, $sortBy, $search)
 {  
-    if($refine != "All"){
+    //Search
+    if($search != null){
+        $searchQuery = " WHERE `product_title` LIKE '%$search%'";
+    }
+    else{
+        $searchQuery = "";
+    }
+    //Refine
+    if($refine != "All" && $search != null){
+        $refineQuery = " AND `product_type` = '$refine'";
+    }
+    else if($refine != "All" && $search == ""){
         $refineQuery = " WHERE `product_type` = '$refine'";
     }
     else{
         $refineQuery = "";
     }
+    //Sortby
     if($sortBy != "None"){
         $sortByQuery = " ORDER BY `product_price` $sortBy";
     }
     else{
         $sortByQuery = "";
     }
-    $query = "SELECT * FROM tbl_products" . $refineQuery . $sortByQuery;
+    
+    
+    $query = "SELECT * FROM tbl_products" . $searchQuery . $refineQuery . $sortByQuery;
     $result = mysqli_query($connection, $query);
     if($result){
         // success! check results
@@ -46,6 +60,7 @@ function displayAllProducts($connection,$refine, $sortBy)
         }
     }
     else{
+        //add message for items not loaded
         echo "error";
     }
 }
